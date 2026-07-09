@@ -14,6 +14,6 @@ public class SpringAopApplication {
         System.out.println("Driver 객체: " + driver);
 
         // 3. 비즈니스 로직 실행
-        driver.driveCar();
+        driver.driveCar(100);
     }
 }

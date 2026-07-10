@@ -2,7 +2,7 @@ package net.likelion.bebc25.spring.componentscan;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component // 빈의 이름은 gasolineCar로 자동 지정됨
 public class GasolineCar implements Car {
     @Override
     public void startEngine(){

@@ -3,7 +3,7 @@ package net.likelion.bebc25.spring.componentscan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component(/*value=*/"hCar") // 빈의 이름은 hCar로 지정됨
 @Primary // 동일 타입의 여러 빈 중에 메인으로 지정
 public class HybridCar implements Car {
     @Override

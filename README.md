@@ -57,15 +57,15 @@
 #### 오전(3시간)
 - [5. 의존성 주입 (DI: Dependency Injection)](docs/01.spring_core.md#5-의존성-주입-di-dependency-injection)
   - [5.3 의존성 주입 방식](docs/01.spring_core.md#53-의존성-주입-방식)
+
+#### 오후(3시간)
 - [6. 관점 지향 프로그래밍 (AOP: Aspect Oriented Programming)](docs/01.spring_core.md#6-관점-지향-프로그래밍-aop-aspect-oriented-programming)
   - [6.1 AOP 개념과 도입 배경](docs/01.spring_core.md#61-aop-개념과-도입-배경)
   - [6.2 프록시(Proxy) 기반 AOP 기술](docs/01.spring_core.md#62-프록시proxy-기반-aop-기술)
   - [6.3 스프링 AOP와 AspectJ의 관계](docs/01.spring_core.md#63-스프링-aop와-aspectj의-관계)
   - [6.4 AOP 핵심 용어](docs/01.spring_core.md#64-aop-핵심-용어)
   - [6.5 프록시 기반 AOP 구현](docs/01.spring_core.md#65-프록시-기반-aop-구현)
-
-#### 오후(3시간)
-
+  
 </details>
 
 <details>

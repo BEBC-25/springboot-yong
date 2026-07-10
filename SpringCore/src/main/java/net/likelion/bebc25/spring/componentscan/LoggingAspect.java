@@ -1,15 +1,17 @@
-package net.likelion.bebc25.spring.aop.springaop;
+package net.likelion.bebc25.spring.componentscan;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Aspect // 횡단 관심사 클래스 정의
+@Component
 public class LoggingAspect {
 
-    @Pointcut("execution(* net.likelion.bebc25.spring.aop.springaop.*Driver.*(..))")
+    @Pointcut("execution(* net.likelion.bebc25.spring.componentscan.Driver.*(..))")
     private void driverClass(){ }
 
 //    @Before("execution(* net.likelion.bebc25.spring.aop.springaop.*Driver.*(..))")

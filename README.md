@@ -57,14 +57,19 @@
 #### 오전(3시간)
 - [5. 의존성 주입 (DI: Dependency Injection)](docs/01.spring_core.md#5-의존성-주입-di-dependency-injection)
   - [5.3 의존성 주입 방식](docs/01.spring_core.md#53-의존성-주입-방식)
-
-#### 오후(3시간)
+    - 💻 실습 (의존성 주입 - Setter Injection): [spring/di/setter](SpringCore/src/main/java/net/likelion/bebc25/spring/di/setter)
 - [6. 관점 지향 프로그래밍 (AOP: Aspect Oriented Programming)](docs/01.spring_core.md#6-관점-지향-프로그래밍-aop-aspect-oriented-programming)
   - [6.1 AOP 개념과 도입 배경](docs/01.spring_core.md#61-aop-개념과-도입-배경)
   - [6.2 프록시(Proxy) 기반 AOP 기술](docs/01.spring_core.md#62-프록시proxy-기반-aop-기술)
+    - 💻 실습 (정적 프록시를 이용한 AOP): [spring/aop/staticproxy](SpringCore/src/main/java/net/likelion/bebc25/spring/aop/staticproxy)
+    - 💻 실습 (동적 프록시를 이용한 AOP): [spring/aop/dynamicproxy](SpringCore/src/main/java/net/likelion/bebc25/spring/aop/dynamicproxy)
+
+#### 오후(3시간)
+- [6. 관점 지향 프로그래밍 (AOP: Aspect Oriented Programming)](docs/01.spring_core.md#6-관점-지향-프로그래밍-aop-aspect-oriented-programming)
   - [6.3 스프링 AOP와 AspectJ의 관계](docs/01.spring_core.md#63-스프링-aop와-aspectj의-관계)
   - [6.4 AOP 핵심 용어](docs/01.spring_core.md#64-aop-핵심-용어)
-  - [6.5 프록시 기반 AOP 구현](docs/01.spring_core.md#65-프록시-기반-aop-구현)
+  - [6.5 스프링 AOP 적용 방법](docs/01.spring_core.md#65-스프링-aop-적용-방법)
+    - 💻 실습 (스프링 AOP): [spring/aop/springaop](SpringCore/src/main/java/net/likelion/bebc25/spring/aop/springaop)
   
 </details>
 
@@ -72,9 +77,31 @@
 <summary><h3>38일차(2026.07.10 금)</h3></summary>
 
 #### 오전(3시간)
+- [7. 컴포넌트 스캔과 의존성 자동 주입](docs/01.spring_core.md#7-컴포넌트-스캔과-의존성-자동-주입)
+  - [7.1 컴포넌트 스캔 (Component Scan)](docs/01.spring_core.md#71-컴포넌트-스캔-component-scan)
+  - [7.2 의존성 자동 주입 (Dependency Auto Injection)](docs/01.spring_core.md#72-의존성-자동-주입-dependency-auto-injection)
+  - 💻 실습 (컴포넌트 스캔): [spring/componentscan](SpringCore/src/main/java/net/likelion/bebc25/spring/componentscan)
+- [8. 스프링 컨테이너 핵심 메커니즘](docs/01.spring_core.md#8-스프링-컨테이너-핵심-메커니즘)
+  - [8.1 스프링 빈 스코프 (Scope)](docs/01.spring_core.md#81-스프링-빈-스코프-scope)
+  - [8.2 스프링 빈 생명주기 및 콜백](docs/01.spring_core.md#82-스프링-빈-생명주기-및-콜백)
+  - 💻 실습 (초기화 메서드와 소멸 메서드): [spring/lifecycle](SpringCore/src/main/java/net/likelion/bebc25/spring/lifecycle)
 
 #### 오후(3시간)
-
+- [1. 스프링 부트 개요](docs/02.spring_boot.md#1-스프링-부트-개요)
+  - [1.1 스프링 부트의 정의와 역할](docs/02.spring_boot.md#11-스프링-부트의-정의와-역할)
+  - [1.2 스프링 프레임워크와 스프링 부트의 차이점](docs/02.spring_boot.md#12-스프링-프레임워크와-스프링-부트의-차이점)
+- [2. 스프링 부트 프로젝트 환경 구축](docs/02.spring_boot.md#2-스프링-부트-프로젝트-환경-구축)
+  - [2.1 스프링 이니셜라이저로 프로젝트 생성](docs/02.spring_boot.md#21-스프링-이니셜라이저로-프로젝트-생성)
+    - 💻 실습 (Spring Initializr로 스프링 부트 프로젝트 생성): [spring-boot-initilizr](spring-boot-initilizr)
+  - [2.2 IntelliJ에서 직접 프로젝트 생성](docs/02.spring_boot.md#22-인텔리제이에서-직접-프로젝트-생성)
+    - 💻 실습 (IntelliJ로 스프링 부트 프로젝트 생성): [spring-boot-intellij](spring-boot-intellij)
+- [3. 스프링 부트 빌드 설정](docs/02.spring_boot.md#3-스프링-부트-빌드-설정)
+  - [3.1 build.gradle 설정](docs/02.spring_boot.md#31-buildgradle-설정)
+- [4. 스프링 부트의 자동 빈 등록 메커니즘](docs/02.spring_boot.md#4-스프링-부트의-자동-빈-등록-메커니즘)
+  - [4.1 메인 실행 클래스와 @SpringBootApplication](docs/02.spring_boot.md#41-메인-실행-클래스와-springbootapplication)
+  - [4.2 자동 의존성 주입 예시](docs/02.spring_boot.md#42-자동-의존성-주입-예시)
+  - 💻 실습 (스프링 부트에서 Car, Driver 작성): [spring-boot-intellij](spring-boot-intellij/src/main/java/net/likelion/bebc25/intellij)
+  
 </details>
 
 <details>

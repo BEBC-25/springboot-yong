@@ -212,7 +212,7 @@ public class BoardController {
         return result;
     }
 
-    // 게시글 등록 화면 요청하는 컨트롤러
+    // 게시글 등록 화면을 요청하는 컨트롤러
     @GetMapping("/01/board/write.html")
     @ResponseBody
     public String getWriteForm(){
@@ -263,6 +263,61 @@ public class BoardController {
         return result;
     }
 
+    // 게시글 수정 화면을 요청하는 컨트롤러
+    @GetMapping("/01/board/edit.html")
+    @ResponseBody
+    public String getEditForm(){
+        String result = """
+               <!DOCTYPE html>
+               <html lang="ko">
+               <head>
+                 <meta charset="UTF-8">
+                 <title>스프링 게시판 - 글 수정하기</title>
+                 <link rel="stylesheet" href="/board/css/common.css">
+                 <link rel="stylesheet" href="/board/css/write.css">
+               </head>
+               <body>
+                 <div class="container">
+                   <h1>게시글 수정</h1>
+                   <div class="nav">
+                     <a href="list.html">목록으로</a>
+                     <a href="write.html">새 글 쓰기</a>
+                   </div>
+        
+                   <form action="edit" method="POST">
+                     <input type="hidden" name="id" value="3">
+        
+                     <div class="form-group">
+                       <label for="title">제목</label>
+                       <input type="text" id="title" name="title" value="세 번째 게시글 제목 샘플" required>
+                     </div>
+        
+                     <div class="form-group">
+                       <label for="author">작성자</label>
+                       <input type="text" id="author" name="author" value="작성자3" required>
+                     </div>
+        
+                     <div class="form-group">
+                       <label for="content">내용</label>
+                       <textarea id="content" name="content" rows="10" required>이것은 정적으로 추가된 세 번째 게시글의 상세 예시 본문입니다.
+               스프링 MVC와 아키텍처 학습을 위해 모의 데이터를 채워두었습니다.</textarea>
+                     </div>
+        
+                     <div style="margin-top: 20px;">
+                       <button type="submit" class="btn">수정</button>
+                       <a href="detail.html" class="btn btn-secondary">취소</a>
+                     </div>
+                   </form>
+                 </div>
+               </body>
+               </html>
+                
+               """;
+
+        return result;
+    }
+
+
     // 게시글 등록 요청을 처리하는 컨트롤러
     @PostMapping("/01/board/write")
     public String writePost(@RequestParam("title") String title,
@@ -287,11 +342,28 @@ public class BoardController {
 
     // 게시글 수정 요청을 처리하는 컨트롤러
     @PostMapping("/01/board/edit")
-    public String editPost(){
-        return "수정 완료 후 보여줄 페이지";
+    public String editPost(@ModelAttribute PostDto post){
+        log.debug(post.toString());
+        updatePost(post);
+        return "redirect:detail.html";
     }
 
-    // 게시글 삭제 요청을 처리하느 컨트롤러
+    // 게시글을 수정한다.
+    public void updatePost(PostDto post){
+        PostDto targetPost = null;
+        for(PostDto org : getPosts()){
+            if(org.getId() == post.getId()){
+                targetPost = org;
+                break;
+            }
+        }
+
+        targetPost.setTitle(post.getTitle());
+        targetPost.setContent(post.getContent());
+        targetPost.setAuthor(post.getAuthor());
+    }
+
+    // 게시글 삭제 요청을 처리하는 컨트롤러
     @PostMapping("/01/board/delete")
     public String deletePost(){
         return "삭제 완료 후 보여줄 페이지";

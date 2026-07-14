@@ -1,17 +1,16 @@
 package net.likelion.bebc25.board.post.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import net.likelion.bebc25.board.post.dto.PostDto;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@Slf4j
 public class BoardController {
 
     private final List<PostDto> fakePosts;
@@ -151,17 +150,151 @@ public class BoardController {
 
     // 게시글 상세 조회하는 컨트롤러
     @GetMapping("/01/board/detail.html")
+    @ResponseBody
     public String getDetail(){
-        String result = "";
+        PostDto post = getPosts().get(1);
+        String result = """
+                <!DOCTYPE html>
+                <html lang="ko">
+                <head>
+                  <meta charset="UTF-8">
+                  <title>스프링 게시판 - 상세 보기</title>
+                  <link rel="stylesheet" href="/board/css/common.css">
+                  <link rel="stylesheet" href="/board/css/detail.css">
+                </head>
+                <body>
+                  <div class="container">
+                    <h1>게시글 상세 정보</h1>
+                    <div class="nav">
+                      <a href="list.html">목록으로</a>
+                      <a href="write.html">새 글 쓰기</a>
+                    </div>
+                
+                    <table style="margin-bottom: 20px;">
+                      <tr>
+                        <th style="width: 60px;">번호</th>
+                        <td>%s</td>
+                      </tr>
+                      <tr>
+                        <th>제목</th>
+                        <td>%s</td>
+                      </tr>
+                      <tr>
+                        <th>작성자</th>
+                        <td>%s</td>
+                      </tr>
+                      <tr>
+                        <th>작성일시</th>
+                        <td>%s</td>
+                      </tr>
+                      <tr>
+                        <th>내용</th>
+                        <td style="white-space: pre-wrap;">%s</td>
+                      </tr>
+                    </table>
+                
+                    <div>
+                      <a href="edit.html" class="btn">수정하기</a>
+                      <a href="list.html" class="btn btn-secondary">목록으로</a>
+                    </div>
+                  </div>
+                </body>
+                </html>
+                
+                """.formatted(
+                        post.getId(),
+                        post.getTitle(),
+                        post.getAuthor(),
+                        post.getCreatedAt(),
+                        post.getContent()
+        );
 
         return result;
     }
 
     // 게시글 등록 화면 요청하는 컨트롤러
     @GetMapping("/01/board/write.html")
+    @ResponseBody
     public String getWriteForm(){
-        String result = "";
+        String result = """
+                <!DOCTYPE html>
+                <html lang="ko">
+                <head>
+                  <meta charset="UTF-8">
+                  <title>스프링 게시판 - 새 글 쓰기</title>
+                  <link rel="stylesheet" href="/board/css/common.css">
+                  <link rel="stylesheet" href="/board/css/write.css">
+                </head>
+                <body>
+                  <div class="container">
+                    <h1>게시글 등록</h1>
+                    <div class="nav">
+                      <a href="list.html">목록으로</a>
+                      <a href="write.html">새 글 쓰기</a>
+                    </div>
+                
+                    <form action="write" method="POST">
+                      <div class="form-group">
+                        <label for="title">제목</label>
+                        <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required>
+                      </div>
+                
+                      <div class="form-group">
+                        <label for="author">작성자</label>
+                        <input type="text" id="author" name="author" placeholder="작성자 이름을 입력하세요" required>
+                      </div>
+                
+                      <div class="form-group">
+                        <label for="content">내용</label>
+                        <textarea id="content" name="content" rows="10" placeholder="내용을 입력하세요" required></textarea>
+                      </div>
+                
+                      <div style="margin-top: 20px;">
+                        <button type="submit" class="btn">등록</button>
+                        <a href="list.html" class="btn btn-secondary">취소</a>
+                      </div>
+                    </form>
+                  </div>
+                </body>
+                </html>
+                
+                """;
 
         return result;
     }
+
+    // 게시글 등록 요청을 처리하는 컨트롤러
+    @PostMapping("/01/board/write")
+    public String writePost(@RequestParam("title") String title,
+                            @RequestParam("content") String content,
+                            @RequestParam("author") String author){
+
+        PostDto post = new PostDto(title, content, author);
+        log.debug(post.toString());
+
+        savePost(post);
+
+        return "redirect:list.html"; // 브라우저에 list.html로 재요청하라고 응답
+    }
+
+    // 게시글을 등록한다.
+    public void savePost(PostDto post){
+        PostDto lastPost = getPosts().getLast();
+        post.setId(lastPost.getId() + 1);
+        post.setCreatedAt(LocalDateTime.now());
+        fakePosts.add(post);
+    }
+
+    // 게시글 수정 요청을 처리하는 컨트롤러
+    @PostMapping("/01/board/edit")
+    public String editPost(){
+        return "수정 완료 후 보여줄 페이지";
+    }
+
+    // 게시글 삭제 요청을 처리하느 컨트롤러
+    @PostMapping("/01/board/delete")
+    public String deletePost(){
+        return "삭제 완료 후 보여줄 페이지";
+    }
+
 }

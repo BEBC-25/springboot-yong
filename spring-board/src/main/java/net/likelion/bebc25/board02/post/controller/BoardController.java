@@ -36,6 +36,8 @@ public class BoardController {
 
         fakePosts.add(post1);
         fakePosts.add(post2);
+
+
     }
 
     // 모든 게시글 목록을 반환한다.
@@ -106,22 +108,36 @@ public class BoardController {
     public String editPost(@ModelAttribute PostDto post){
         log.debug(post.toString());
         updatePost(post);
-        return "redirect:detail.html";
+        return "redirect:detail.html?id=" + post.getId();
     }
 
     // 게시글을 수정한다.
     public void updatePost(PostDto post){
         PostDto targetPost = null;
-        for(PostDto org : getPosts()){
+        List<PostDto> posts = getPosts();
+        for(PostDto org : posts){
             if(org.getId() == post.getId()){
                 targetPost = org;
                 break;
             }
         }
 
+//        posts.remove(targetPost);
+
         targetPost.setTitle(post.getTitle());
         targetPost.setContent(post.getContent());
         targetPost.setAuthor(post.getAuthor());
+    }
+
+    // 게시글을 삭제한다.
+    public void deletePost(int id){
+        List<PostDto> posts = getPosts();
+        for(PostDto org : posts){
+            if(org.getId() == id){
+                posts.remove(org);
+                break;
+            }
+        }
     }
 
     // 게시글 삭제 요청을 처리하는 컨트롤러

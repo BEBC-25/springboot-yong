@@ -119,7 +119,7 @@ public class BoardController {
                     <tr>
                       <td>%s</td>
                       <td>
-                        <a href="detail.html">%s</a>
+                        <a href="detail.html?id=%s">%s</a>
                       </td>
                       <td>%s</td>
                       <td>%s</td>
@@ -128,6 +128,7 @@ public class BoardController {
                       </td>
                     </tr>
                     """.formatted(
+                            post.getId(),
                             post.getId(),
                             post.getTitle(),
                             post.getAuthor(),
@@ -151,8 +152,8 @@ public class BoardController {
     // 게시글 상세 조회하는 컨트롤러
     @GetMapping("/01/board/detail.html")
     @ResponseBody
-    public String getDetail(){
-        PostDto post = getPosts().get(1);
+    public String getDetail(@RequestParam("id") int id){
+        PostDto post = getPosts().get(id-1);
         String result = """
                 <!DOCTYPE html>
                 <html lang="ko">
@@ -285,7 +286,7 @@ public class BoardController {
                    </div>
         
                    <form action="edit" method="POST">
-                     <input type="hidden" name="id" value="3">
+                     <input type="hidden" name="id" value="1">
         
                      <div class="form-group">
                        <label for="title">제목</label>

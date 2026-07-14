@@ -65,109 +65,19 @@ public class BoardController {
 
     // 게시글 등록 화면을 요청하는 컨트롤러
     @GetMapping("/write.html")
-    @ResponseBody
-    public String getWriteForm(){
-        String result = """
-                <!DOCTYPE html>
-                <html lang="ko">
-                <head>
-                  <meta charset="UTF-8">
-                  <title>스프링 게시판 - 새 글 쓰기</title>
-                  <link rel="stylesheet" href="/board/css/common.css">
-                  <link rel="stylesheet" href="/board/css/write.css">
-                </head>
-                <body>
-                  <div class="container">
-                    <h1>게시글 등록</h1>
-                    <div class="nav">
-                      <a href="list.html">목록으로</a>
-                      <a href="write.html">새 글 쓰기</a>
-                    </div>
-                
-                    <form action="write" method="POST">
-                      <div class="form-group">
-                        <label for="title">제목</label>
-                        <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required>
-                      </div>
-                
-                      <div class="form-group">
-                        <label for="author">작성자</label>
-                        <input type="text" id="author" name="author" placeholder="작성자 이름을 입력하세요" required>
-                      </div>
-                
-                      <div class="form-group">
-                        <label for="content">내용</label>
-                        <textarea id="content" name="content" rows="10" placeholder="내용을 입력하세요" required></textarea>
-                      </div>
-                
-                      <div style="margin-top: 20px;">
-                        <button type="submit" class="btn">등록</button>
-                        <a href="list.html" class="btn btn-secondary">취소</a>
-                      </div>
-                    </form>
-                  </div>
-                </body>
-                </html>
-                
-                """;
-
-        return result;
+    public String getWriteForm(Model model){
+        model.addAttribute("postForm", new PostDto());
+        return "board/write";
     }
 
     // 게시글 수정 화면을 요청하는 컨트롤러
     @GetMapping("/edit.html")
-    @ResponseBody
-    public String getEditForm(){
-        String result = """
-               <!DOCTYPE html>
-               <html lang="ko">
-               <head>
-                 <meta charset="UTF-8">
-                 <title>스프링 게시판 - 글 수정하기</title>
-                 <link rel="stylesheet" href="/board/css/common.css">
-                 <link rel="stylesheet" href="/board/css/write.css">
-               </head>
-               <body>
-                 <div class="container">
-                   <h1>게시글 수정</h1>
-                   <div class="nav">
-                     <a href="list.html">목록으로</a>
-                     <a href="write.html">새 글 쓰기</a>
-                   </div>
-        
-                   <form action="edit" method="POST">
-                     <input type="hidden" name="id" value="1">
-        
-                     <div class="form-group">
-                       <label for="title">제목</label>
-                       <input type="text" id="title" name="title" value="세 번째 게시글 제목 샘플" required>
-                     </div>
-        
-                     <div class="form-group">
-                       <label for="author">작성자</label>
-                       <input type="text" id="author" name="author" value="작성자3" required>
-                     </div>
-        
-                     <div class="form-group">
-                       <label for="content">내용</label>
-                       <textarea id="content" name="content" rows="10" required>이것은 정적으로 추가된 세 번째 게시글의 상세 예시 본문입니다.
-               스프링 MVC와 아키텍처 학습을 위해 모의 데이터를 채워두었습니다.</textarea>
-                     </div>
-        
-                     <div style="margin-top: 20px;">
-                       <button type="submit" class="btn">수정</button>
-                       <a href="detail.html" class="btn btn-secondary">취소</a>
-                     </div>
-                   </form>
-                 </div>
-               </body>
-               </html>
-                
-               """;
+    public String getEditForm(@RequestParam("id") int id, Model model){
+        PostDto post = getPosts().get(id-1);
 
-        return result;
+        model.addAttribute("postForm", post);
+        return "board/write";
     }
-
 
     // 게시글 등록 요청을 처리하는 컨트롤러
     @PostMapping("/write")

@@ -39,7 +39,7 @@
     </table>
 
     <div>
-      <a href="edit.html" class="btn">수정하기</a>
+      <a th:href="@{edit.html(id=${post.id})}" class="btn">수정하기</a>
       <a href="list.html" class="btn btn-secondary">목록으로</a>
     </div>
   </div>

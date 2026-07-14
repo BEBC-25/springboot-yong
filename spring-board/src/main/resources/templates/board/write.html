@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>스프링 게시판 - 새 글 쓰기</title>
@@ -14,7 +14,7 @@
       <a href="write.html">새 글 쓰기</a>
     </div>
 
-    <form action="list.html">
+    <form action="write" method="POST">
       <div class="form-group">
         <label for="title">제목</label>
         <input type="text" id="title" name="title" placeholder="제목을 입력하세요" required>
@@ -31,7 +31,7 @@
       </div>
 
       <div style="margin-top: 20px;">
-        <button type="submit" class="btn">등록</button>
+        <button type="submit" class="btn" th:text="${postForm.id == 0} ? '등록' : '수정'">등록</button>
         <a href="list.html" class="btn btn-secondary">취소</a>
       </div>
     </form>

@@ -70,15 +70,13 @@ public class BoardController {
 
     // 지정한 id의 게시글을 반환한다.
     public PostDto getPost(int id){
-        PostDto targetPost = null;
         List<PostDto> posts = getPosts();
         for(PostDto org : posts){
             if(org.getId() == id){
-                targetPost = org;
-                break;
+                return org;
             }
         }
-        return targetPost;
+        throw new IllegalArgumentException(id + "번 게시글은 존재하지 않습니다.");
     }
 
     // 게시글 등록 화면을 요청하는 컨트롤러
@@ -122,8 +120,14 @@ public class BoardController {
 
     // 게시글 수정 요청을 처리하는 컨트롤러
     @PostMapping("/edit")
-    public String editPost(@ModelAttribute PostDto post){
+    public String editPost(@Valid @ModelAttribute("postForm") PostDto post,
+                           BindingResult bindingResult){
         log.debug(post.toString());
+
+        if(bindingResult.hasErrors()){
+            return "board/write";
+        }
+
         updatePost(post);
         return "redirect:detail.html?id=" + post.getId();
     }

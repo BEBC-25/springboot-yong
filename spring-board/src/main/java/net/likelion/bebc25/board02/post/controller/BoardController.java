@@ -60,10 +60,23 @@ public class BoardController {
     // 게시글 상세 조회하는 컨트롤러
     @GetMapping("/detail.html")
     public String getDetail(@RequestParam("id") int id, Model model){
-        PostDto post = getPosts().get(id-1);
+        PostDto post = getPost(id);
 
         model.addAttribute("post", post);
         return "board/detail"; // 템플릿 파일 경로
+    }
+
+    // 지정한 id의 게시글을 반환한다.
+    public PostDto getPost(int id){
+        PostDto targetPost = null;
+        List<PostDto> posts = getPosts();
+        for(PostDto org : posts){
+            if(org.getId() == id){
+                targetPost = org;
+                break;
+            }
+        }
+        return targetPost;
     }
 
     // 게시글 등록 화면을 요청하는 컨트롤러
@@ -76,7 +89,7 @@ public class BoardController {
     // 게시글 수정 화면을 요청하는 컨트롤러
     @GetMapping("/edit.html")
     public String getEditForm(@RequestParam("id") int id, Model model){
-        PostDto post = getPosts().get(id-1);
+        PostDto post = getPost(id);
 
         model.addAttribute("postForm", post);
         return "board/write";
@@ -84,11 +97,7 @@ public class BoardController {
 
     // 게시글 등록 요청을 처리하는 컨트롤러
     @PostMapping("/write")
-    public String writePost(@RequestParam("title") String title,
-                            @RequestParam("content") String content,
-                            @RequestParam("author") String author){
-
-        PostDto post = new PostDto(title, content, author);
+    public String writePost(@ModelAttribute PostDto post){
         log.debug(post.toString());
 
         savePost(post);

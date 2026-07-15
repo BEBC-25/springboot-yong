@@ -81,8 +81,8 @@ public class BoardController {
 
     // 게시글 등록 화면을 요청하는 컨트롤러
     @GetMapping("/write.html")
-    public String getWriteForm(Model model){
-        model.addAttribute("postForm", new PostDto());
+    public String getWriteForm(@ModelAttribute("postForm") PostDto post){ // 모델에 자동으로 주입까지 됨(postDto 이름으로)
+//        model.addAttribute("postForm", new PostDto());
         return "board/write";
     }
 

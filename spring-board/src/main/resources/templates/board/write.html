@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h1 th:text="${postForm.id == 0} ? '게시글 등록' : '게시글 수정'">게시글 등록</h1>
-    <div class="nav">
+    <div class="nav" th:replace="~{layout/common :: nav-header}">
       <a href="list.html">목록으로</a>
       <a href="write.html">새 글 쓰기</a>
     </div>

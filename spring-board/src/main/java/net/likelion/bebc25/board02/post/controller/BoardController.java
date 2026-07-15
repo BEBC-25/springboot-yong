@@ -1,9 +1,11 @@
 package net.likelion.bebc25.board02.post.controller;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import net.likelion.bebc25.board02.post.dto.PostDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -97,8 +99,13 @@ public class BoardController {
 
     // 게시글 등록 요청을 처리하는 컨트롤러
     @PostMapping("/write")
-    public String writePost(@ModelAttribute PostDto post){
+    public String writePost(@Valid @ModelAttribute("postForm") PostDto post, // Validation 검증 대상 객체
+                            BindingResult bindingResult){ // Validation 검증 결과 저장 객체(대상 객체 뒤에 기술해야 함)
         log.debug(post.toString());
+
+        if(bindingResult.hasErrors()){ // 검증에 실패했을 경우
+            return "board/write"; // 작성중이던 페이지로 다시 보낸다.
+        }
 
         savePost(post);
 

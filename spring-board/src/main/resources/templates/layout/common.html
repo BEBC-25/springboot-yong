@@ -8,11 +8,13 @@
 </head>
 <body>
 <div class="container">
-    <h1>타이틀</h1>
-    <div class="nav" th:fragment="nav-header">
-        <a th:href="@{write.html}">새글</a>
-        <a th:href="@{list.html}">목록으로 이동</a>
-    </div>
+    <th:block th:fragment="nav-header(title)">
+        <h1 th:text="${title}">타이틀</h1>
+        <div class="nav">
+            <a th:href="@{write.html}">새글</a>
+            <a th:href="@{list.html}">목록으로 이동</a>
+        </div>
+    </th:block>
 </div>
 </body>
 </html>

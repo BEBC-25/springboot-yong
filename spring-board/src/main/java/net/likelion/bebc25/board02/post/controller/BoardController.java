@@ -25,6 +25,7 @@ public class BoardController {
         post1.setTitle("1번 게시글");
         post1.setContent("1번 게시글 내용입니다.");
         post1.setAuthor("하루");
+        post1.setSecret(true);
         post1.setCreatedAt(LocalDateTime.now());
 
         PostDto post2 = new PostDto();
@@ -130,7 +131,7 @@ public class BoardController {
     }
 
     // 게시글을 삭제한다.
-    public void deletePost(int id){
+    public void removePost(int id){
         List<PostDto> posts = getPosts();
         for(PostDto org : posts){
             if(org.getId() == id){
@@ -142,8 +143,10 @@ public class BoardController {
 
     // 게시글 삭제 요청을 처리하는 컨트롤러
     @PostMapping("/delete")
-    public String deletePost(){
-        return "삭제 완료 후 보여줄 페이지";
+    public String deletePost(@RequestParam int id){
+        log.debug(id + " 삭제 요청.");
+        removePost(id);
+        return "redirect:list.html";
     }
 
 }

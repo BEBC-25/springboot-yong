@@ -1,9 +1,11 @@
 package net.likelion.bebc25.board02.post.controller;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import net.likelion.bebc25.board02.post.dto.PostDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -60,23 +62,34 @@ public class BoardController {
     // 게시글 상세 조회하는 컨트롤러
     @GetMapping("/detail.html")
     public String getDetail(@RequestParam("id") int id, Model model){
-        PostDto post = getPosts().get(id-1);
+        PostDto post = getPost(id);
 
         model.addAttribute("post", post);
         return "board/detail"; // 템플릿 파일 경로
     }
 
+    // 지정한 id의 게시글을 반환한다.
+    public PostDto getPost(int id){
+        List<PostDto> posts = getPosts();
+        for(PostDto org : posts){
+            if(org.getId() == id){
+                return org;
+            }
+        }
+        throw new IllegalArgumentException(id + "번 게시글은 존재하지 않습니다.");
+    }
+
     // 게시글 등록 화면을 요청하는 컨트롤러
     @GetMapping("/write.html")
-    public String getWriteForm(Model model){
-        model.addAttribute("postForm", new PostDto());
+    public String getWriteForm(@ModelAttribute("postForm") PostDto post){ // 모델에 자동으로 주입까지 됨(postDto 이름으로)
+//        model.addAttribute("postForm", new PostDto());
         return "board/write";
     }
 
     // 게시글 수정 화면을 요청하는 컨트롤러
     @GetMapping("/edit.html")
     public String getEditForm(@RequestParam("id") int id, Model model){
-        PostDto post = getPosts().get(id-1);
+        PostDto post = getPost(id);
 
         model.addAttribute("postForm", post);
         return "board/write";
@@ -84,12 +97,13 @@ public class BoardController {
 
     // 게시글 등록 요청을 처리하는 컨트롤러
     @PostMapping("/write")
-    public String writePost(@RequestParam("title") String title,
-                            @RequestParam("content") String content,
-                            @RequestParam("author") String author){
-
-        PostDto post = new PostDto(title, content, author);
+    public String writePost(@Valid @ModelAttribute("postForm") PostDto post, // Validation 검증 대상 객체
+                            BindingResult bindingResult){ // Validation 검증 결과 저장 객체(대상 객체 뒤에 기술해야 함)
         log.debug(post.toString());
+
+        if(bindingResult.hasErrors()){ // 검증에 실패했을 경우
+            return "board/write"; // 작성중이던 페이지로 다시 보낸다.
+        }
 
         savePost(post);
 
@@ -106,8 +120,14 @@ public class BoardController {
 
     // 게시글 수정 요청을 처리하는 컨트롤러
     @PostMapping("/edit")
-    public String editPost(@ModelAttribute PostDto post){
+    public String editPost(@Valid @ModelAttribute("postForm") PostDto post,
+                           BindingResult bindingResult){
         log.debug(post.toString());
+
+        if(bindingResult.hasErrors()){
+            return "board/write";
+        }
+
         updatePost(post);
         return "redirect:detail.html?id=" + post.getId();
     }

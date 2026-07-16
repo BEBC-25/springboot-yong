@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
+@Builder
 // 게시글 하나를 저장할 객체
 public class PostDto {
     private int id;

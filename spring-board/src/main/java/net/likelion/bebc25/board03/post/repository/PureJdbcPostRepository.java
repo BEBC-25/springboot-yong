@@ -1,6 +1,8 @@
 package net.likelion.bebc25.board03.post.repository;
 
+import jakarta.validation.Valid;
 import net.likelion.bebc25.board03.post.dto.PostDto;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -14,11 +16,14 @@ import java.util.List;
 @Repository
 public class PureJdbcPostRepository implements PostRepository {
 
-    private String url = "jdbc:mysql://localhost:3306/board_db?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";
+    @Value("${spring.datasource.url}")
+    private String url;
 //    private String url = "jdbc:mariadb://localhost:3306/board_db?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";
 
-    private String user = "user1";
-    private String password = "1111";
+    @Value("${spring.datasource.username}")
+    private String user;
+    @Value("${spring.datasource.password}")
+    private String password;
 
     @Override
     public List<PostDto> findAll() {

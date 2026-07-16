@@ -110,7 +110,7 @@ public class PureJdbcPostRepository implements PostRepository {
 
     @Override
     public void save(PostDto post) {
-        String sql = "INSERT INTO post2 (author, title, content) VALUES ("+post.getAuthor()+", '"+post.getTitle()+"', '"+post.getContent()+"')";
+        String sql = "INSERT INTO post2 (author, title, content) VALUES ('"+post.getAuthor()+"', '"+post.getTitle()+"', '"+post.getContent()+"')";
 
         Connection conn = null;
         Statement stmt = null;

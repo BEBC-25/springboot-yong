@@ -55,11 +55,15 @@ public class JdbcTemplatePostRepository implements PostRepository{
 
     @Override
     public void update(PostDto post) {
-
+        jdbcTemplate.update("UPDATE post2 SET title = ?, author = ?, content = ? WHERE id = ?"
+                , post.getTitle()
+                , post.getAuthor()
+                , post.getContent()
+                , post.getId());
     }
 
     @Override
     public void deleteById(int id) {
-
+        jdbcTemplate.update("DELETE FROM post2 WHERE id = ?", id);
     }
 }

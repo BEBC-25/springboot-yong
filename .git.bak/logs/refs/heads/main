@@ -1,0 +1,62 @@
+0000000000000000000000000000000000000000 079fc543730f29931f8defdde88b16084451e738 kilyong jeong <uzoolove@gmail.com> 1783468733 +0900	clone: from https://github.com/BEBC-25/springboot-yong.git
+079fc543730f29931f8defdde88b16084451e738 bb263695180f5a716220dca81612e40b03cecdc2 kilyong jeong <uzoolove@gmail.com> 1783470816 +0900	commit: init
+bb263695180f5a716220dca81612e40b03cecdc2 cda95f5cebf278e7c9c19749d9d404d9fe2f2950 kilyong jeong <uzoolove@gmail.com> 1783470864 +0900	commit: init
+cda95f5cebf278e7c9c19749d9d404d9fe2f2950 32ebd7d48da4b922bc7014b3b613162e7d117ac1 kilyong jeong <uzoolove@gmail.com> 1783471943 +0900	pull --tags origin main: Fast-forward
+32ebd7d48da4b922bc7014b3b613162e7d117ac1 92eafcef7ae47c6f495eeac4545b2afd2a451c4f kilyong jeong <uzoolove@gmail.com> 1783486458 +0900	commit: .
+92eafcef7ae47c6f495eeac4545b2afd2a451c4f 8ac12e8b474b871a4fb90eaed1b812f82f8d3e3f kilyong jeong <uzoolove@gmail.com> 1783486580 +0900	commit: .
+8ac12e8b474b871a4fb90eaed1b812f82f8d3e3f 93fd120fcd0bb34d6e7af5013d0971afbc46a76e kilyong jeong <uzoolove@gmail.com> 1783506259 +0900	pull --tags origin main: Fast-forward
+93fd120fcd0bb34d6e7af5013d0971afbc46a76e 219b0b363fb1c04f4b362a6845d1f740781d9aaa kilyong jeong <uzoolove@gmail.com> 1783555404 +0900	commit: .
+219b0b363fb1c04f4b362a6845d1f740781d9aaa 0838830416c5342ec937c4907bf6d64532060ade kilyong jeong <uzoolove@gmail.com> 1783558382 +0900	commit: .
+0838830416c5342ec937c4907bf6d64532060ade 65b77ea4453fe11265d3880f5fdc3458665f9ab1 kilyong jeong <uzoolove@gmail.com> 1783559712 +0900	commit: .
+65b77ea4453fe11265d3880f5fdc3458665f9ab1 f2e416550f16297358758c9777a6caec01b57c41 kilyong jeong <uzoolove@gmail.com> 1783577493 +0900	commit: .
+f2e416550f16297358758c9777a6caec01b57c41 d23aa11790e40173ee2ff276e6df5af29b4bd1d8 kilyong jeong <uzoolove@gmail.com> 1783577497 +0900	pull --tags origin main: Merge made by the 'ort' strategy.
+d23aa11790e40173ee2ff276e6df5af29b4bd1d8 cb0dd28e1b4cf87e4997ed08b5caf5c8467715ec kilyong jeong <uzoolove@gmail.com> 1783581306 +0900	pull --tags origin main: Fast-forward
+cb0dd28e1b4cf87e4997ed08b5caf5c8467715ec 8a3e1dbeed54234fb9f53604a42f295c0b0c3c19 kilyong jeong <uzoolove@gmail.com> 1783641611 +0900	commit: .
+8a3e1dbeed54234fb9f53604a42f295c0b0c3c19 b1a0bd2e910cfdb4e3fa72a47fe3e4e7ba9f6888 kilyong jeong <uzoolove@gmail.com> 1783641769 +0900	commit: .
+b1a0bd2e910cfdb4e3fa72a47fe3e4e7ba9f6888 c19808c51dcf1f0f483216f39dcf247e89e032a1 kilyong jeong <uzoolove@gmail.com> 1783646692 +0900	commit: .
+c19808c51dcf1f0f483216f39dcf247e89e032a1 2cc6c22354703ca0c525b94665fc199c81f8ed95 kilyong jeong <uzoolove@gmail.com> 1783658242 +0900	commit: .
+2cc6c22354703ca0c525b94665fc199c81f8ed95 5abb997684f7afdc931b91b31d7a52a372c4fe4d kilyong jeong <uzoolove@gmail.com> 1783658256 +0900	pull --tags origin main: Merge made by the 'ort' strategy.
+5abb997684f7afdc931b91b31d7a52a372c4fe4d ef70e50811769d5d01ef27104ef5e14958c8708e kilyong jeong <uzoolove@gmail.com> 1783822733 +0900	pull --tags origin main: Fast-forward
+ef70e50811769d5d01ef27104ef5e14958c8708e dc68a71a42ce9d9b93cbb923f2d83ebe8b263f6c kilyong jeong <uzoolove@gmail.com> 1783822759 +0900	commit: .
+dc68a71a42ce9d9b93cbb923f2d83ebe8b263f6c ed8d0cc29e8243e1fef8451855b48039521c7eed kilyong jeong <uzoolove@gmail.com> 1783862234 +0900	commit: .
+ed8d0cc29e8243e1fef8451855b48039521c7eed 3446063c4a7299b33ecb8a98c8674d2d915de090 kilyong jeong <uzoolove@gmail.com> 1783900413 +0900	commit: .
+3446063c4a7299b33ecb8a98c8674d2d915de090 a3f9ac23b7b8c48f9ec0f1bc74cce018c155f2b1 kilyong jeong <uzoolove@gmail.com> 1783900780 +0900	commit: .
+a3f9ac23b7b8c48f9ec0f1bc74cce018c155f2b1 ec27bbc049578387cef4b697d9a2985f4fe1126a kilyong jeong <uzoolove@gmail.com> 1783900870 +0900	commit: .
+ec27bbc049578387cef4b697d9a2985f4fe1126a 048daacb7702e75268266aac7d04595f7aaef534 kilyong jeong <uzoolove@gmail.com> 1783903975 +0900	commit: .
+048daacb7702e75268266aac7d04595f7aaef534 83bd74c6fb1fdedecee3598eb013fc8ad06fdc2b kilyong jeong <uzoolove@gmail.com> 1783904540 +0900	commit: .
+83bd74c6fb1fdedecee3598eb013fc8ad06fdc2b c4d4c51873a1c21b871d8a2d217128576a86f26e kilyong jeong <uzoolove@gmail.com> 1783904853 +0900	commit: .
+c4d4c51873a1c21b871d8a2d217128576a86f26e d212d48bd676f065d70c8ee936e2e157d55f88bf kilyong jeong <uzoolove@gmail.com> 1783906658 +0900	pull --tags origin main: Fast-forward
+d212d48bd676f065d70c8ee936e2e157d55f88bf 0ef2fe57224d7198fb26d741268012f626ec2d34 kilyong jeong <uzoolove@gmail.com> 1783907100 +0900	commit: .
+0ef2fe57224d7198fb26d741268012f626ec2d34 674da946c2031f7d905023b28c57a116f6e6ee50 kilyong jeong <uzoolove@gmail.com> 1783907732 +0900	commit: .
+674da946c2031f7d905023b28c57a116f6e6ee50 bf6d39239ca306d72526affb0244cd6c77663ad6 kilyong jeong <uzoolove@gmail.com> 1783909263 +0900	commit: .
+bf6d39239ca306d72526affb0244cd6c77663ad6 d926fa44bf77a874179b908f157d0ec1af63ba21 kilyong jeong <uzoolove@gmail.com> 1783914027 +0900	commit: .
+d926fa44bf77a874179b908f157d0ec1af63ba21 a0525d3e3555ab2a6b5d738d5ed37dd2be485a6e kilyong jeong <uzoolove@gmail.com> 1783915702 +0900	commit: .
+a0525d3e3555ab2a6b5d738d5ed37dd2be485a6e e493e5bd72a286ac9894becc0426209b4e3d6f5b kilyong jeong <uzoolove@gmail.com> 1783919871 +0900	commit: .
+e493e5bd72a286ac9894becc0426209b4e3d6f5b 173d29d93712dee758df537c0f759fdb5d9524af kilyong jeong <uzoolove@gmail.com> 1783925675 +0900	pull --tags origin main: Fast-forward
+173d29d93712dee758df537c0f759fdb5d9524af 32ab6f1da7a2c9ce995e82257fa4c19bddb73358 kilyong jeong <uzoolove@gmail.com> 1783987937 +0900	commit: .
+32ab6f1da7a2c9ce995e82257fa4c19bddb73358 7dc261daed7e35a701388143ed7035fc462d8628 kilyong jeong <uzoolove@gmail.com> 1784001541 +0900	pull --tags origin main: Fast-forward
+7dc261daed7e35a701388143ed7035fc462d8628 f1b4ce68476425d99fb7be33025dc81424ff181a kilyong jeong <uzoolove@gmail.com> 1784001560 +0900	commit: .
+f1b4ce68476425d99fb7be33025dc81424ff181a 8db9ca35727352cf87aedbd91245a4c8a67c5ff4 kilyong jeong <uzoolove@gmail.com> 1784001632 +0900	commit: .
+8db9ca35727352cf87aedbd91245a4c8a67c5ff4 5a5e5a4616bb52d14e4e434e8aeb14bac762591c kilyong jeong <uzoolove@gmail.com> 1784012392 +0900	commit: .
+5a5e5a4616bb52d14e4e434e8aeb14bac762591c 14f480b56ac250eb87d0d5bbfe33f6cce77e9dba kilyong jeong <uzoolove@gmail.com> 1784012395 +0900	pull --tags origin main: Merge made by the 'ort' strategy.
+14f480b56ac250eb87d0d5bbfe33f6cce77e9dba 1450fe5eec11c9cb061843402a898416565df4b1 kilyong jeong <uzoolove@gmail.com> 1784073153 +0900	commit: .
+1450fe5eec11c9cb061843402a898416565df4b1 5309b982bff2cb1c18a15879031198a33f764ec1 kilyong jeong <uzoolove@gmail.com> 1784073547 +0900	pull --tags origin main: Merge made by the 'ort' strategy.
+5309b982bff2cb1c18a15879031198a33f764ec1 6d1d4091e4a8a9598ebb7c0532821d3f812905c4 kilyong jeong <uzoolove@gmail.com> 1784077158 +0900	commit: .
+6d1d4091e4a8a9598ebb7c0532821d3f812905c4 69274d8ed742d6a8409baab9dcae8bd4b3d93a57 kilyong jeong <uzoolove@gmail.com> 1784080028 +0900	pull --tags origin main: Fast-forward
+69274d8ed742d6a8409baab9dcae8bd4b3d93a57 a6158fd605d94a9348e0f32d320b1580b15d3511 kilyong jeong <uzoolove@gmail.com> 1784080432 +0900	commit: .
+a6158fd605d94a9348e0f32d320b1580b15d3511 fdbbb65280c5fe8b31ebbbcb60feed77e3455dd5 kilyong jeong <uzoolove@gmail.com> 1784175436 +0900	commit: .
+fdbbb65280c5fe8b31ebbbcb60feed77e3455dd5 5caf6aafb6dd1959a5fa18a46a41779b63df766e kilyong jeong <uzoolove@gmail.com> 1784175440 +0900	pull --tags origin main: Merge made by the 'ort' strategy.
+5caf6aafb6dd1959a5fa18a46a41779b63df766e 9240df048a9afe8983bdec9816784d61b99e6f00 kilyong jeong <uzoolove@gmail.com> 1784181345 +0900	commit: .
+9240df048a9afe8983bdec9816784d61b99e6f00 c4f542534cdd71989d67ce13ae21a3636205d012 kilyong jeong <uzoolove@gmail.com> 1784181355 +0900	pull --tags origin main: Merge made by the 'ort' strategy.
+c4f542534cdd71989d67ce13ae21a3636205d012 9a3af05256c48eaf2293f0bacac4dfcbffd9d3f5 kilyong jeong <uzoolove@gmail.com> 1784181377 +0900	commit: .
+9a3af05256c48eaf2293f0bacac4dfcbffd9d3f5 eb05cf34e4ebd1e98784277f3a45ed92b7900b8b kilyong jeong <uzoolove@gmail.com> 1784181555 +0900	commit: .
+eb05cf34e4ebd1e98784277f3a45ed92b7900b8b 99ff4dbed80e20eb84ccf8b1b21d3c0f230cf1ef kilyong jeong <uzoolove@gmail.com> 1784182192 +0900	commit: .
+99ff4dbed80e20eb84ccf8b1b21d3c0f230cf1ef ed6234f3e7bbfb1bcd1fbaed93969fb216e2c317 kilyong jeong <uzoolove@gmail.com> 1784811375 +0900	pull --tags origin main: Fast-forward
+ed6234f3e7bbfb1bcd1fbaed93969fb216e2c317 cae86fbe2386c1046964fed6ac2fb13338cf4270 kilyong jeong <uzoolove@gmail.com> 1785295326 +0900	commit: .
+cae86fbe2386c1046964fed6ac2fb13338cf4270 e04f91b55aa5f5c84c94aae314404329a6734389 kilyong jeong <uzoolove@gmail.com> 1785384497 +0900	commit: .
+e04f91b55aa5f5c84c94aae314404329a6734389 347def8fe855bb2e05f306712befea5686976b5d kilyong jeong <uzoolove@gmail.com> 1785391111 +0900	commit: .
+347def8fe855bb2e05f306712befea5686976b5d 85df229e9ccf06b3ed22c26fc61b19e809d7e7d1 kilyong jeong <uzoolove@gmail.com> 1785391164 +0900	commit: .
+85df229e9ccf06b3ed22c26fc61b19e809d7e7d1 6f76193ff03ecb4293071364b4f8468d0ce3c434 kilyong jeong <uzoolove@gmail.com> 1788094307 +0900	commit: .
+6f76193ff03ecb4293071364b4f8468d0ce3c434 c408891920530f139f7c7d6aceba2c77c2ce239a kilyong jeong <uzoolove@gmail.com> 1788095485 +0900	pull --tags origin main: Fast-forward
+c408891920530f139f7c7d6aceba2c77c2ce239a fabce0468453b3c4c5467599ec4ade113eec00fa kilyong jeong <uzoolove@gmail.com> 1788095899 +0900	commit: .
+fabce0468453b3c4c5467599ec4ade113eec00fa fdedc1a60a35e487234d951b9b37eae5ba00572f kilyong jeong <uzoolove@gmail.com> 1788101497 +0900	commit: .

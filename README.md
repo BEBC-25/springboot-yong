@@ -7,9 +7,9 @@
 - [4. Spring 데이터 접근 기술과 데이터베이스 모델링](docs/04.spring_data_jdbc.md)
 - 5. Spring Data JPA
 - 6. Spring REST API
-- [7. Spring Security](docs/07.spring_security.md)
-- [8. Spring Batch](docs/08.spring_batch.md)
-- [9. Spring MVC 웹 개발 심화](docs/09.spring_web_advanced.md)
+- 7. Spring Security
+- 8. Spring Batch
+- 9. Spring MVC 웹 개발 심화
 
 # 수업 진도
 <details>
@@ -239,6 +239,199 @@
 </details>
 
 </details>
+
+<details>
+
+<summary><h2>14주차 - 2026.08.26(수) ~ 2026.09.01(화)</h2></summary>
+
+<details>
+<summary><h3>69일차(2026.08.31 월)</h3></summary>
+
+#### 오전(3시간)
+
+
+#### 오후(3시간)
+
+    
+</details>
+
+<details>
+<summary><h3>70일차(2026.09.01 화)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+</details>
+
+<details>
+
+<summary><h2>15주차 - 2026.09.02(수) ~ 2026.09.08(화)</h2></summary>
+
+<details>
+<summary><h3>71일차(2026.09.02 수)</h3></summary>
+
+#### 오전(3시간)
+
+
+#### 오후(3시간)
+
+    
+</details>
+
+<details>
+<summary><h3>72일차(2026.09.03 목)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+<details>
+<summary><h3>73일차(2026.09.04 금)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+<details>
+<summary><h3>74일차(2026.09.07 월)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+<details>
+<summary><h3>75일차(2026.09.08 화)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+<details>
+
+<summary><h2>16주차 - 2026.09.09(수) ~ 2026.09.15(화)</h2></summary>
+
+<details>
+<summary><h3>76일차(2026.09.09 수)</h3></summary>
+
+#### 오전(3시간)
+
+
+#### 오후(3시간)
+
+    
+</details>
+
+<details>
+<summary><h3>77일차(2026.09.10 목)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+<details>
+<summary><h3>78일차(2026.09.11 금)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+<details>
+<summary><h3>79일차(2026.09.14 월)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+<details>
+<summary><h3>80일차(2026.09.15 화)</h3></summary>
+
+#### 오전(3시간)
+
+#### 오후(3시간)
+
+</details>
+
+</details>
+
+<details>
+
+<summary><h2>17주차 - 2026.09.16(수) ~ 2026.09.22(화)</h2></summary>
+
+<details>
+<summary><h3>81일차(2026.09.16 수)</h3></summary>
+
+#### 오전(3시간)
+
+
+#### 오후(3시간)
+
+    
+</details>
+
+<details>
+<summary><h3>82일차(2026.09.17 목)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트 준비
+
+#### 오후(3시간)
+- 응용 프로젝트 준비
+
+</details>
+
+<details>
+<summary><h3>83일차(2026.09.18 금)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트
+
+#### 오후(3시간)
+- 응용 프로젝트
+
+</details>
+
+<details>
+<summary><h3>84일차(2026.09.21 월)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트
+
+#### 오후(3시간)
+- 응용 프로젝트
+
+</details>
+
+<details>
+<summary><h3>85일차(2026.09.22 화)</h3></summary>
+
+#### 오전(3시간)
+- 응용 프로젝트
+
+#### 오후(3시간)
+- 응용 프로젝트
+
+</details>
+
+
+</details>
+
 
 </details>
 

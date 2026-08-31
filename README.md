@@ -5,11 +5,11 @@
 - [2. 스프링 부트 시작하기](docs/02.spring_boot.md)
 - [3. Spring MVC 웹 개발 기초](docs/03.spring_web_mvc.md)
 - [4. Spring 데이터 접근 기술과 데이터베이스 모델링](docs/04.spring_data_jdbc.md)
-- 5. Spring Data JPA
-- 6. Spring REST API
-- 7. Spring Security
-- 8. Spring Batch
-- 9. Spring MVC 웹 개발 심화
+- [5. Spring Data JPA]
+- [6. Spring REST API]
+- [7. Spring Security]
+- [8. Spring Batch]
+- [9. Spring MVC 웹 개발 심화]
 
 # 수업 진도
 <details>

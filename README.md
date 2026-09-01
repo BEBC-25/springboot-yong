@@ -248,10 +248,16 @@
 <summary><h3>69일차(2026.08.31 월)</h3></summary>
 
 #### 오전(3시간)
-
+- [2. 데이터베이스 모델링](docs/04.spring_data_jdbc.md#2-데이터베이스-모델링)
+  - [2.1 데이터베이스 모델링 개요](docs/04.spring_data_jdbc.md#21-데이터베이스-모델링-개요)
+  - [2.2 데이터베이스 정규화 이론](docs/04.spring_data_jdbc.md#22-데이터베이스-정규화-이론)
 
 #### 오후(3시간)
-
+- [2. 데이터베이스 모델링](docs/04.spring_data_jdbc.md#2-데이터베이스-모델링)
+  - [2.3 ERD 설계와 Crow's Foot 표기법](docs/04.spring_data_jdbc.md#23-erd-설계와-crows-foot-표기법)
+  - [2.4 식별 관계와 비식별 관계의 구조적 구분](docs/04.spring_data_jdbc.md#24-식별-관계와-비식별-관계의-구조적-구분)
+  - [2.5 SNS 핵심 도메인 테이블 정의서 및 최종 DDL 스키마](docs/04.spring_data_jdbc.md#25-sns-핵심-도메인-테이블-정의서-및-최종-ddl-스키마)
+  - [2.6 대표적인 모델링 도구 및 설계 가이드라인](docs/04.spring_data_jdbc.md#26-대표적인-모델링-도구-및-설계-가이드라인)
     
 </details>
 
@@ -259,8 +265,19 @@
 <summary><h3>70일차(2026.09.01 화)</h3></summary>
 
 #### 오전(3시간)
+- [3. 인덱스와 쿼리 성능 최적화](docs/04.spring_data_jdbc.md#3-인덱스와-쿼리-성능-최적화)
+  - [3.1 인덱스 정의와 옵티마이저 작동 원리](docs/04.spring_data_jdbc.md#31-인덱스-정의와-옵티마이저-작동-원리)
+  - [3.2 인덱스 관리 SQL 및 설계 원칙](docs/04.spring_data_jdbc.md#32-인덱스-관리-sql-및-설계-원칙)
+  - [3.3 쿼리 성능 저하 원인 분석](docs/04.spring_data_jdbc.md#33-쿼리-성능-저하-원인-분석)
+  - 💻 실습 (대량 더미 데이터 생성 프로시저): [spring-data/query/prodedure.sql](spring-data/query/prodedure.sql)
 
 #### 오후(3시간)
+- [3. 인덱스와 쿼리 성능 최적화](docs/04.spring_data_jdbc.md#3-인덱스와-쿼리-성능-최적화)
+  - [3.4 데이터베이스 실행 계획 확인](docs/04.spring_data_jdbc.md#34-데이터베이스-실행-계획-확인)
+  - [3.5 페이징 처리 기법](docs/04.spring_data_jdbc.md#35-페이징-처리-기법)
+  - 💻 실습 (인덱스 생성·성능 측정 및 실행 계획 분석): [spring-data/query/index.sql](spring-data/query/index.sql)
+- [4. MyBatis 연동](docs/04.spring_data_jdbc.md#4-mybatis-연동)
+  - [4.1 MyBatis 아키텍처와 환경 설정](docs/04.spring_data_jdbc.md#41-mybatis-아키텍처와-환경-설정)
 
 </details>
 

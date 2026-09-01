@@ -269,7 +269,7 @@
   - [3.1 인덱스 정의와 옵티마이저 작동 원리](docs/04.spring_data_jdbc.md#31-인덱스-정의와-옵티마이저-작동-원리)
   - [3.2 인덱스 관리 SQL 및 설계 원칙](docs/04.spring_data_jdbc.md#32-인덱스-관리-sql-및-설계-원칙)
   - [3.3 쿼리 성능 저하 원인 분석](docs/04.spring_data_jdbc.md#33-쿼리-성능-저하-원인-분석)
-  - 💻 실습 (대량 더미 데이터 생성 프로시저): [spring-data/query/prodedure.sql](spring-data/query/prodedure.sql)
+  - 💻 실습 (대량 더미 데이터 생성 프로시저): [spring-data/query/procedure.sql](spring-data/query/procedure.sql)
 
 #### 오후(3시간)
 - [3. 인덱스와 쿼리 성능 최적화](docs/04.spring_data_jdbc.md#3-인덱스와-쿼리-성능-최적화)

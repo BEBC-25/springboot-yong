@@ -316,8 +316,21 @@
 <summary><h3>72일차(2026.09.03 목)</h3></summary>
 
 #### 오전(3시간)
+- [3. 스프링 선언적 트랜잭션](docs/05.mybatis.md#3-스프링-선언적-트랜잭션)
+  - [3.1 스프링 트랜잭션 추상화](docs/05.mybatis.md#31-스프링-트랜잭션-추상화)
+  - [3.2 @Transactional 선언과 AOP 프록시 동작 메커니즘](docs/05.mybatis.md#32-transactional-선언과-aop-프록시-동작-메커니즘)
+  - [3.3 트랜잭션 전파 속성과 격리 수준](docs/05.mybatis.md#33-트랜잭션-전파-속성과-격리-수준)
+  - [3.4 @Transactional 실무 사용법과 권장 설정](docs/05.mybatis.md#34-transactional-실무-사용법과-권장-설정)
 
 #### 오후(3시간)
+- [4. 서비스 계층 선언적 트랜잭션 실습](docs/05.mybatis.md#4-서비스-계층-선언적-트랜잭션-실습)
+  - [4.1 트랜잭션 적용 시나리오: 좋아요 토글](docs/05.mybatis.md#41-트랜잭션-적용-시나리오-좋아요-토글)
+  - [4.2 매퍼 설계 원칙: 도메인 관점과 테이블 책임 분리](docs/05.mybatis.md#42-매퍼-설계-원칙-도메인-관점과-테이블-책임-분리)
+  - [4.3 PostLikeMapper 인터페이스 및 XML 구현](docs/05.mybatis.md#43-postlikemapper-인터페이스-및-xml-구현)
+  - [4.4 PostMapper 인터페이스 및 XML 메서드 추가](docs/05.mybatis.md#44-postmapper-인터페이스-및-xml-메서드-추가)
+  - [4.5 서비스 인터페이스 및 구현 클래스 작성](docs/05.mybatis.md#45-서비스-인터페이스-및-구현-클래스-작성)
+  - [4.6 트랜잭션 롤백 테스트 및 무결성 검증](docs/05.mybatis.md#46-트랜잭션-롤백-테스트-및-무결성-검증)
+  - 💻 실습 (서비스 계층 선언적 트랜잭션 실습): [mybatis-sns](mybatis-sns)
 
 </details>
 

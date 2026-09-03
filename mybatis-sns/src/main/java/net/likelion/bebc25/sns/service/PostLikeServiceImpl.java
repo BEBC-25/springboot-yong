@@ -5,8 +5,10 @@ import net.likelion.bebc25.sns.dto.PostResponseDto;
 import net.likelion.bebc25.sns.mapper.PostLikeMapper;
 import net.likelion.bebc25.sns.mapper.PostMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional(readOnly = true)
 public class PostLikeServiceImpl implements PostLikeService {
 
     private final PostMapper postMapper;

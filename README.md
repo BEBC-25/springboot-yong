@@ -292,10 +292,23 @@
 <summary><h3>71일차(2026.09.02 수)</h3></summary>
 
 #### 오전(3시간)
-
+- [1. MyBatis](docs/05.mybatis.md#1-mybatis)
+  - [1.2 MyBatis 핵심 구성 요소와 동작 원리](docs/05.mybatis.md#12-mybatis-핵심-구성-요소와-동작-원리)
+  - [1.3 MyBatis 빌드 의존성 및 환경 설정](docs/05.mybatis.md#13-mybatis-빌드-의존성-및-환경-설정)
+  - [1.4 Mapper 인터페이스와 매개변수 바인딩](docs/05.mybatis.md#14-mapper-인터페이스와-매개변수-바인딩)
+- [2. MyBatis 실습: SNS 데이터 계층 구현](docs/05.mybatis.md#2-mybatis-실습-sns-데이터-계층-구현)
+  - [2.1 프로젝트 환경 구성 및 설정](docs/05.mybatis.md#21-프로젝트-환경-구성-및-설정)
+  - [2.2 기본 CRUD 기능 구현 및 단위 테스트](docs/05.mybatis.md#22-기본-crud-기능-구현-및-단위-테스트)
+  - 💻 실습 (MyBatis SNS 프로젝트 설정 및 기본 CRUD 단위 테스트): [mybatis-sns](mybatis-sns)
 
 #### 오후(3시간)
-
+- [1. MyBatis](docs/05.mybatis.md#1-mybatis)
+  - [1.5 ResultMap과 복합 객체 조인 매핑](docs/05.mybatis.md#15-resultmap과-복합-객체-조인-매핑)
+  - [1.6 동적 SQL 제어와 공통 쿼리 모듈화](docs/05.mybatis.md#16-동적-sql-제어와-공통-쿼리-모듈화)
+- [2. MyBatis 실습: SNS 데이터 계층 구현](docs/05.mybatis.md#2-mybatis-실습-sns-데이터-계층-구현)
+  - [2.3 ResultMap 복합 조인 상세 조회 구현 및 단위 테스트](docs/05.mybatis.md#23-resultmap-복합-조인-상세-조회-구현-및-단위-테스트)
+  - [2.4 동적 SQL 검색 및 일괄 삭제 구현 및 단위 테스트](docs/05.mybatis.md#24-동적-sql-검색-및-일괄-삭제-구현-및-단위-테스트)
+  - 💻 실습 (ResultMap 1:1/1:N 복합 조인 및 동적 SQL 단위 테스트): [mybatis-sns/src/test/java/net/likelion/bebc25/sns/mapper/PostMapperTest.java](mybatis-sns/src/test/java/net/likelion/bebc25/sns/mapper/PostMapperTest.java)
     
 </details>
 

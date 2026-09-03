@@ -30,3 +30,4 @@ UPDATE post SET image_url = 'only_image.png' WHERE id = 499999;
 UPDATE post SET content = 'content와 이미지 수정', image_url = 'also_image.png' WHERE id = 499998;
 
 
+DELETE FROM post WHERE id IN (499997, 499996);

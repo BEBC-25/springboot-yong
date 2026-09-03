@@ -15,6 +15,7 @@
         SELECT <include refid="postColumns" />
         FROM post
         ORDER BY id DESC
+        LIMIT 10
     </select>
 
     <!-- 2. ID 기반 단건 상세 조회 -->

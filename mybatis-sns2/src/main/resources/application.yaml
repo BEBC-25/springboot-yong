@@ -1,6 +1,6 @@
 spring:
   application:
-    name: mybatis-sns
+    name: mybatis-sns2
   # 데이터베이스 접속 정보
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

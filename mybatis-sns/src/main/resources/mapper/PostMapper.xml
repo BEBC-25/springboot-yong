@@ -167,4 +167,18 @@
         </foreach>
     </delete>
 
+    <!-- 게시글의 like_count 1 증가 -->
+    <update id="increaseLikeCount">
+        UPDATE post
+        SET like_count = like_count + 1
+        WHERE id = #{postId}
+    </update>
+
+    <!-- 게시글의 like_count 1 감소 -->
+    <update id="decreaseLikeCount">
+        UPDATE post
+        SET like_count = GREATEST(like_count - 1, 0)
+        WHERE id = #{postId}
+    </update>
+
 </mapper>

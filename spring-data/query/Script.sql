@@ -45,7 +45,31 @@ WHERE member_id = 1 AND post_id = 2;
 SELECT * FROM post_like;
         
 -- 좋아요 등록 여부
-SELECT * FROM post_like
+SELECT COUNT(*)
+FROM post_like
 WHERE member_id = 1 AND post_id = 2;
+
+
+-- 좋아요 수치 증가
+UPDATE post
+SET like_count = like_count + 1
+WHERE id = 2;
+
+SELECT * FROM post WHERE id = 2;
+
+
+-- 좋아요 수치 감소
+UPDATE post
+SET like_count = like_count - 1
+WHERE id = 2;
+
+
+
+
+
+
+
+
+
 
 

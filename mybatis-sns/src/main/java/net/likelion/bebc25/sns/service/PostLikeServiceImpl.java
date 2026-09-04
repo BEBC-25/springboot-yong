@@ -1,7 +1,7 @@
 package net.likelion.bebc25.sns.service;
 
-import net.likelion.bebc25.sns.dto.LikeToggleResponseDto;
-import net.likelion.bebc25.sns.dto.PostResponseDto;
+import net.likelion.bebc25.sns.dto.LikeToggleResponse;
+import net.likelion.bebc25.sns.dto.PostResponse;
 import net.likelion.bebc25.sns.mapper.PostLikeMapper;
 import net.likelion.bebc25.sns.mapper.PostMapper;
 import org.springframework.stereotype.Service;
@@ -20,9 +20,10 @@ public class PostLikeServiceImpl implements PostLikeService {
     }
 
     @Override
-    public LikeToggleResponseDto toggleLike(Long memberId, Long postId) {
+    @Transactional(rollbackFor = Exception.class)
+    public LikeToggleResponse toggleLike(Long memberId, Long postId) {
         // 1. 대상 게시글의 존재 여부 확인
-        PostResponseDto post = postMapper.findById(postId);
+        PostResponse post = postMapper.findById(postId);
         if(post == null) {
             throw new IllegalArgumentException("해당 게시글이 없습니다. id: "+ postId);
         }
@@ -35,13 +36,13 @@ public class PostLikeServiceImpl implements PostLikeService {
             postLikeMapper.deleteLike(memberId, postId);
             // 좋아요 수 1 감소
             postMapper.decreaseLikeCount(postId);
-            return new LikeToggleResponseDto(false, post.likeCount() - 1);
+            return new LikeToggleResponse(false, post.likeCount() - 1);
         }else{ // 3-2. 등록되어 있지 않을 경우 등록 처리
             // 좋아요 추가
             postLikeMapper.insertLike(memberId, postId);
             // 좋아요 수 1 증가
             postMapper.increaseLikeCount(postId);
-            return new LikeToggleResponseDto(true, post.likeCount() + 1);
+            return new LikeToggleResponse(true, post.likeCount() + 1);
         }
     }
 }

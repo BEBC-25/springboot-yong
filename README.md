@@ -369,8 +369,18 @@
 <summary><h3>74일차(2026.09.07 월)</h3></summary>
 
 #### 오전(3시간)
+- [4. Spring REST 컨트롤러와 메시지 변환](docs/07.spring_rest_api.md#4-spring-rest-컨트롤러와-메시지-변환)
+  - [4.3 Record DTO 기반 REST 컨트롤러 구현](docs/07.spring_rest_api.md#43-record-dto-기반-rest-컨트롤러-구현)
+  - 💻 실습 (게시글 CRUD API 구현 및 권한 검증): [mybatis-sns](mybatis-sns)
+- [5. REST 요청 검증과 전역 예외 처리](docs/07.spring_rest_api.md#5-rest-요청-검증과-전역-예외-처리)
+  - [5.1 Bean Validation 기반 요청 데이터 검증](docs/07.spring_rest_api.md#51-bean-validation-기반-요청-데이터-검증)
 
 #### 오후(3시간)
+- [5. REST 요청 검증과 전역 예외 처리](docs/07.spring_rest_api.md#5-rest-요청-검증과-전역-예외-처리)
+  - [5.2 공통 에러 응답 객체 설계](docs/07.spring_rest_api.md#52-공통-에러-응답-객체-설계)
+  - [5.3 @RestControllerAdvice 기반 전역 예외 제어](docs/07.spring_rest_api.md#53-restcontrolleradvice-기반-전역-예외-제어)
+  - [5.4 서비스 계층 비즈니스 예외 발생과 전파](docs/07.spring_rest_api.md#54-서비스-계층-비즈니스-예외-발생과-전파)
+  - 💻 실습 (전역 예외 처리 및 공통 에러 응답 규격 적용): [mybatis-sns](mybatis-sns)
 
 </details>
 

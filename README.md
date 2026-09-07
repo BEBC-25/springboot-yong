@@ -338,8 +338,30 @@
 <summary><h3>73일차(2026.09.04 금)</h3></summary>
 
 #### 오전(3시간)
+- [5. 게시글 비즈니스 서비스 계층 구현](docs/05.mybatis.md#5-게시글-비즈니스-서비스-계층-구현)
+  - [5.1 게시글 서비스 인터페이스 정의](docs/05.mybatis.md#51-게시글-서비스-인터페이스-정의)
+  - [5.2 게시글 수정 요청 DTO 정의](docs/05.mybatis.md#52-게시글-수정-요청-dto-정의)
+  - [5.3 서비스 구현 클래스 및 비즈니스 예외 처리](docs/05.mybatis.md#53-서비스-구현-클래스-및-비즈니스-예외-처리)
+  - [5.4 게시글 서비스 통합 테스트 작성](docs/05.mybatis.md#54-게시글-서비스-통합-테스트-작성)
+  - 💻 실습 (게시글 서비스 계층 구현 및 통합 테스트): [mybatis-sns](mybatis-sns)
+- [1. 웹 렌더링 패러다임의 변화](docs/07.spring_rest_api.md#1-웹-렌더링-패러다임의-변화)
+  - [1.1 SSR과 CSR의 동작 메커니즘](docs/07.spring_rest_api.md#11-ssr과-csr의-동작-메커니즘)
+  - [1.2 데이터 중심 아키텍처에서의 클라이언트와 서버 역할](docs/07.spring_rest_api.md#12-데이터-중심-아키텍처에서의-클라이언트와-서버-역할)
+  - [1.3 SSR과 CSR 렌더링 아키텍처 비교](docs/07.spring_rest_api.md#13-ssr과-csr-렌더링-아키텍처-비교)
+- [2. REST 아키텍처와 설계 원칙](docs/07.spring_rest_api.md#2-rest-아키텍처와-설계-원칙)
+  - [2.1 REST 핵심 용어 정의](docs/07.spring_rest_api.md#21-rest-핵심-용어-정의)
+  - [2.2 REST 아키텍처 6대 제약조건](docs/07.spring_rest_api.md#22-rest-아키텍처-6대-제약조건)
+  - [2.3 REST 환경의 HTTP 메서드 매핑](docs/07.spring_rest_api.md#23-rest-환경의-http-메서드-매핑)
 
 #### 오후(3시간)
+- [3. RESTful URI 설계와 HTTP 상태 코드](docs/07.spring_rest_api.md#3-restful-uri-설계와-http-상태-코드)
+  - [3.1 자원 중심의 URI 설계 표준](docs/07.spring_rest_api.md#31-자원-중심의-uri-설계-표준)
+  - [3.2 주요 HTTP 응답 상태 코드](docs/07.spring_rest_api.md#32-주요-http-응답-상태-코드)
+- [4. Spring REST 컨트롤러와 메시지 변환](docs/07.spring_rest_api.md#4-spring-rest-컨트롤러와-메시지-변환)
+  - [4.1 @RestController의 구조와 동작 메커니즘](docs/07.spring_rest_api.md#41-restcontroller의-구조와-동작-메커니즘)
+  - [4.2 HttpMessageConverter와 Jackson 직렬화](docs/07.spring_rest_api.md#42-httpmessageconverter와-jackson-직렬화)
+  - [4.3 Record DTO 기반 REST 컨트롤러 구현](docs/07.spring_rest_api.md#43-record-dto-기반-rest-컨트롤러-구현)
+  - 💻 실습 (PostRestController 구현 및 API 테스트): [mybatis-sns](mybatis-sns)
 
 </details>
 

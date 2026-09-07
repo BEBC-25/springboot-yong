@@ -60,7 +60,7 @@ SELECT * FROM post WHERE id = 2;
 
 -- 좋아요 수치 감소
 UPDATE post
-SET like_count = like_count - 1
+SET like_count = GREATEST(like_count - 1, 0)
 WHERE id = 2;
 
 

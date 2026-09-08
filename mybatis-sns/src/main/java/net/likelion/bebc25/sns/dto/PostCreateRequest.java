@@ -17,7 +17,6 @@ import lombok.Setter;
 public class PostCreateRequest {
     private Long id;
 
-//    @NotNull(message = "작성자 id는 필수 입니다.")
     private Long memberId;
 
     @NotBlank(message = "본문 내용은 필수 입니다.")

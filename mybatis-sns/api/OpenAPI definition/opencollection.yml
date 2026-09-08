@@ -19,3 +19,10 @@ extensions:
     ignore:
       - node_modules
       - .git
+    openapi:
+      - sourceUrl: http://localhost:8080/v3/api-docs
+        groupBy: tags
+        lastSyncDate: 2026-09-08T05:09:52.034Z
+        specHash: 3c43918289be1d51b8ca5027a1cbbf65
+        autoCheck: true
+        autoCheckInterval: 5

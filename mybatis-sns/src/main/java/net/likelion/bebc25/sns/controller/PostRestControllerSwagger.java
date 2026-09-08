@@ -1,12 +1,14 @@
 package net.likelion.bebc25.sns.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import net.likelion.bebc25.sns.dto.PostCreateRequest;
-import net.likelion.bebc25.sns.dto.PostResponse;
-import net.likelion.bebc25.sns.dto.PostSearchRequest;
-import net.likelion.bebc25.sns.dto.PostUpdateRequest;
+import net.likelion.bebc25.sns.dto.*;
 import net.likelion.bebc25.sns.service.PostService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +16,22 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
-//@RestController
+@Tag(name = "게시글 API", description = "게시글 CRUD 기능")
+@RestController
 @RequestMapping("/api/v1/posts")
-public class PostRestController {
+public class PostRestControllerSwagger {
 
     private final PostService postService;
 
-    public PostRestController(PostService postService) {
+    public PostRestControllerSwagger(PostService postService) {
         this.postService = postService;
     }
 
     // 게시글 목록 조회, 검색
+    @Operation(
+            summary = "게시글 목록 조회, 검색",
+            description = "게시글의 목록을 조회하거나 검색을 수행합니다."
+    )
     @GetMapping
     public ResponseEntity<List<PostResponse>> getPostList(
             @ModelAttribute PostSearchRequest searchRequest){
@@ -46,6 +53,19 @@ public class PostRestController {
     }
 
     // 게시글 한건 조회
+    @Operation(
+            summary = "게시글 상세 조회",
+            description = "id 값으로 게시글의 상세 정보를 조회합니다.<br>대상이 없을 경우 404에러를 반환합니다."
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "성공"
+    )
+    @ApiResponse(
+            responseCode = "404",
+            description = "게시글이 존재하지 않음.",
+            content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+    )
     @GetMapping("/{id}")
     public ResponseEntity<PostResponse> getPost(@PathVariable("id") Long id){
         // 전달받은 id를 이용해서 서비스 레이어의 게시글 한건 조회 메서드를 호출
@@ -55,6 +75,31 @@ public class PostRestController {
     }
 
     // 게시글 수정
+    @Operation(
+            summary = "게시글 수정",
+            description = "게시글을 수정합니다."
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "성공"
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "입력값 유효성 검사 실패.",
+                    content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+            ),
+            @ApiResponse(
+                    responseCode = "403",
+                    description = "권한 없음.",
+                    content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "게시글이 존재하지 않음.",
+                    content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+            )
+    })
     @PutMapping("/{id}")
     public ResponseEntity<PostResponse> updatePost(
             @PathVariable("id") Long id,

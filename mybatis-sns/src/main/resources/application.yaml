@@ -42,3 +42,10 @@ springdoc:
     enabled: true
     path: /v3/api-docs
 
+logging:
+  level:
+    # 스프링 시큐리티 전체 로그를 디버그 레벨로 활성화
+    org.springframework.security: DEBUG
+
+    # 더 세부적인 필터 체인 통과 흐름을 보려면 TRACE 지정 가능
+    # org.springframework.security.web.FilterChainProxy: TRACE

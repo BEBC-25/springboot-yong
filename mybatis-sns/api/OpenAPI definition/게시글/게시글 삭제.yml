@@ -10,11 +10,11 @@ http:
   url: "{{baseUrl}}/api/v1/posts/:id"
   headers:
     - name: X-Member-Id
-      value: "1"
+      value: "2"
       description: 작성자 회원 ID
   params:
     - name: id
-      value: "1"
+      value: "3"
       type: path
       description: 삭제할 게시글 ID
   auth: inherit

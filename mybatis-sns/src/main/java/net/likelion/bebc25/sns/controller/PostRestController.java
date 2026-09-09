@@ -5,16 +5,18 @@ import net.likelion.bebc25.sns.dto.PostCreateRequest;
 import net.likelion.bebc25.sns.dto.PostResponse;
 import net.likelion.bebc25.sns.dto.PostSearchRequest;
 import net.likelion.bebc25.sns.dto.PostUpdateRequest;
+import net.likelion.bebc25.sns.security.principal.CustomUserDetails;
 import net.likelion.bebc25.sns.service.PostService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
 
-//@RestController
+@RestController
 @RequestMapping("/api/v1/posts")
 public class PostRestController {
 
@@ -36,10 +38,12 @@ public class PostRestController {
     // 게시글 등록
     @PostMapping
     public ResponseEntity<PostResponse> createPost(
-            @RequestHeader("X-Member-Id") Long memberId, // 임시로 헤더에서 추출
+//            @RequestHeader("X-Member-Id") Long memberId, // 임시로 헤더에서 추출
+            @AuthenticationPrincipal CustomUserDetails userDetails,
             @Valid @RequestBody PostCreateRequest request // JSON 요청 바디를 객체로 자동 매핑
     ){
-        request.setMemberId(memberId);
+        System.out.println(userDetails.getMember());
+        request.setMemberId(userDetails.getId());
         PostResponse createdPost = postService.createPost(request);
         URI location = URI.create("/api/v1/posts/" + createdPost.id());
         return ResponseEntity.created(location).body(createdPost); // 201
@@ -58,14 +62,15 @@ public class PostRestController {
     @PutMapping("/{id}")
     public ResponseEntity<PostResponse> updatePost(
             @PathVariable("id") Long id,
-            @RequestHeader("X-Member-Id") Long memberId, // 임시로 헤더에서 추출
+//            @RequestHeader("X-Member-Id") Long memberId, // 임시로 헤더에서 추출
+            @AuthenticationPrincipal CustomUserDetails userDetails,
             @Valid @RequestBody PostUpdateRequest request){
 
         // 수정 전에 게시글 정보 조회
         PostResponse post = postService.getPostById(id);
 
         // 본인의 게시글인지 확인
-        if(!post.memberId().equals(memberId)){
+        if(!post.memberId().equals(userDetails.getId())){
             throw new IllegalStateException("본인의 게시글만 수정이 가능합니다.");
         }
 
@@ -83,13 +88,14 @@ public class PostRestController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePost(
             @PathVariable("id") Long id,
-            @RequestHeader("X-Member-Id") Long memberId // 임시로 헤더에서 추출
+//            @RequestHeader("X-Member-Id") Long memberId // 임시로 헤더에서 추출
+            @AuthenticationPrincipal CustomUserDetails userDetails
     ){
         // 삭제 전에 게시글 정보 조회
         PostResponse post = postService.getPostById(id);
 
         // 본인의 게시글인지 확인
-        if(!post.memberId().equals(memberId)){
+        if(!post.memberId().equals(userDetails.getId())){
             throw new IllegalStateException("본인의 게시글만 삭제가 가능합니다.");
         }
 

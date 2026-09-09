@@ -13,7 +13,6 @@ http:
       value: "1"
       type: path
       description: 조회할 게시글 ID
-  auth: inherit
 
 settings:
   encodeUrl: true

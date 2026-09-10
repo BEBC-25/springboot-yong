@@ -2,12 +2,15 @@ package net.likelion.bebc25.sns.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+
+import java.net.http.HttpRequest;
 
 @Configuration
 @EnableWebSecurity
@@ -31,6 +34,8 @@ public class SecurityConfig {
                 // URL 엔드포인트별 기본 접근 인가 설정
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/auth/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/posts").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/posts/*").permitAll()
                         .requestMatchers("/api/v1/admin/**").hasRole("ADMIN") // ROLE_ADMIN 체크
                         .anyRequest().authenticated()
                 );

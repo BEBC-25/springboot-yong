@@ -2,16 +2,22 @@ package net.likelion.bebc25.sns.security.config;
 
 import net.likelion.bebc25.sns.security.handler.CustomAccessDeniedHandler;
 import net.likelion.bebc25.sns.security.handler.CustomAuthenticationEntryPoint;
+import net.likelion.bebc25.sns.security.jwt.JwtAuthenticationFilter;
+import net.likelion.bebc25.sns.security.jwt.JwtProvider;
+import net.likelion.bebc25.sns.security.service.CustomUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.net.http.HttpRequest;
 
@@ -19,6 +25,20 @@ import java.net.http.HttpRequest;
 @EnableWebSecurity
 @EnableMethodSecurity // 컨트롤러나 서비스 계층 메서드 단위의 보안 검증 작업 활성화
 public class SecurityConfig {
+
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+        return config.getAuthenticationManager();
+    }
+
+    private final JwtProvider jwtProvider;
+    private final CustomUserDetailsService userDetailsService;
+
+    public SecurityConfig(JwtProvider jwtProvider, CustomUserDetailsService userDetailsService) {
+        this.jwtProvider = jwtProvider;
+        this.userDetailsService = userDetailsService;
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
@@ -28,8 +48,8 @@ public class SecurityConfig {
                 // CSRF 공격 방어 기능 비활성화
                 .csrf(AbstractHttpConfigurer::disable)
 
-                // HTTP 기본 인증 활성화
-                .httpBasic(Customizer.withDefaults())
+                // HTTP 기본 인증 비활성화
+                .httpBasic(AbstractHttpConfigurer::disable)
 
                 // 기본 폼 로그인 비활성화
                 .formLogin(AbstractHttpConfigurer::disable)
@@ -43,6 +63,12 @@ public class SecurityConfig {
                 .exceptionHandling(exception -> exception
                         .authenticationEntryPoint(customAuthenticationEntryPoint)
                         .accessDeniedHandler(customAccessDeniedHandler)
+                )
+
+                // 커스텀 JWT 인증 필터를 UsernamePasswordAuthenticationFilter 바로 앞에 배치
+                .addFilterBefore(
+                        new JwtAuthenticationFilter(jwtProvider, userDetailsService),
+                        UsernamePasswordAuthenticationFilter.class
                 )
 
                 // URL 엔드포인트별 기본 접근 인가 설정

@@ -66,13 +66,15 @@ public class PostRestController {
             @AuthenticationPrincipal CustomUserDetails userDetails,
             @Valid @RequestBody PostUpdateRequest request){
 
-        // 수정 전에 게시글 정보 조회
-        PostResponse post = postService.getPostById(id);
 
-        // 본인의 게시글인지 확인
-        if(!post.memberId().equals(userDetails.getId())){
-            throw new IllegalStateException("본인의 게시글만 수정이 가능합니다.");
-        }
+
+//        // 수정 전에 게시글 정보 조회
+//        PostResponse post = postService.getPostById(id);
+//
+//        // 본인의 게시글인지 확인
+//        if(!post.memberId().equals(userDetails.getId())){
+//            throw new IllegalStateException("본인의 게시글만 수정이 가능합니다.");
+//        }
 
         // 수정 작업
         postService.updatePost(id, request);
@@ -91,13 +93,6 @@ public class PostRestController {
 //            @RequestHeader("X-Member-Id") Long memberId // 임시로 헤더에서 추출
             @AuthenticationPrincipal CustomUserDetails userDetails
     ){
-        // 삭제 전에 게시글 정보 조회
-        PostResponse post = postService.getPostById(id);
-
-        // 본인의 게시글인지 확인
-        if(!post.memberId().equals(userDetails.getId())){
-            throw new IllegalStateException("본인의 게시글만 삭제가 가능합니다.");
-        }
 
         // 삭제 작업
         postService.deletePost(id);

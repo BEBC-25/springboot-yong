@@ -3,6 +3,7 @@ package net.likelion.bebc25.sns.exception;
 import lombok.extern.slf4j.Slf4j;
 import net.likelion.bebc25.sns.dto.ApiErrorResponse;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -43,6 +44,13 @@ public class GlobalRestExceptionHandler {
         return ResponseEntity.status(ErrorCode.BUSINESS_RULE_VIOLATION.getHttpStatus()).body(response);
     }
 
+    // 권한이 없는 리소스 접근시 호출됨(401 Access Denied 응답)
+    @ExceptionHandler(AuthorizationDeniedException.class)
+    public ResponseEntity<ApiErrorResponse> handleAuthorizationDeniedException(AuthorizationDeniedException ex) {
+        ApiErrorResponse response = ApiErrorResponse.of(ErrorCode.UNAUTHORIZED_ACCESS, ex.getMessage());
+        return ResponseEntity.status(ErrorCode.UNAUTHORIZED_ACCESS.getHttpStatus()).body(response);
+    }
+
     // 요청한 자원이 없을 때(404 Not Found 응답)
     @ExceptionHandler(NoSuchElementException.class)
     public ResponseEntity<ApiErrorResponse> handleNoSuchElementException(NoSuchElementException ex) {
@@ -60,7 +68,7 @@ public class GlobalRestExceptionHandler {
     // 서버 내부 오류가 발생했을 때(500 Internal Server Error 응답)
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiErrorResponse> handleGeneralException(Exception ex) {
-        log.error(ex.getMessage());
+        log.error("Exception 발생", ex);
         ApiErrorResponse response = ApiErrorResponse.of(ErrorCode.INTERNAL_SERVER_ERROR);
         return ResponseEntity.status(ErrorCode.INTERNAL_SERVER_ERROR.getHttpStatus()).body(response);
     }

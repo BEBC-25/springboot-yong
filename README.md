@@ -9,8 +9,6 @@
 - [6. Spring Data JPA]
 - [7. Spring REST API](docs/07.spring_rest_api.md)
 - [8. Spring Security](docs/08.spring_security.md)
-- [9. Spring Batch]
-- [10. Spring MVC 웹 개발 심화]
 
 # 수업 진도
 <details>

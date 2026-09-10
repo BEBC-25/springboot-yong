@@ -1,5 +1,7 @@
 package net.likelion.bebc25.sns.security.config;
 
+import net.likelion.bebc25.sns.security.handler.CustomAccessDeniedHandler;
+import net.likelion.bebc25.sns.security.handler.CustomAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -18,7 +20,10 @@ import java.net.http.HttpRequest;
 @EnableMethodSecurity // 컨트롤러나 서비스 계층 메서드 단위의 보안 검증 작업 활성화
 public class SecurityConfig {
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(
+            HttpSecurity http,
+            CustomAuthenticationEntryPoint customAuthenticationEntryPoint,
+            CustomAccessDeniedHandler customAccessDeniedHandler) throws Exception {
         http
                 // CSRF 공격 방어 기능 비활성화
                 .csrf(AbstractHttpConfigurer::disable)
@@ -33,6 +38,13 @@ public class SecurityConfig {
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
+
+                // Filter에서 발생하는 예외 처리 핸들러
+                .exceptionHandling(exception -> exception
+                        .authenticationEntryPoint(customAuthenticationEntryPoint)
+                        .accessDeniedHandler(customAccessDeniedHandler)
+                )
+
                 // URL 엔드포인트별 기본 접근 인가 설정
                 .authorizeHttpRequests(auth -> auth
                         // 게시글 목록 및 상세 조회(GET)는 비로그인 사용자에게도 공개 허용

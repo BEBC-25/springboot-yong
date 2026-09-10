@@ -44,11 +44,11 @@ public class GlobalRestExceptionHandler {
         return ResponseEntity.status(ErrorCode.BUSINESS_RULE_VIOLATION.getHttpStatus()).body(response);
     }
 
-    // 권한이 없는 리소스 접근시 호출됨(401 Access Denied 응답)
+    // 권한이 없는 리소스 접근시 호출됨(403 Forbidden 응답)
     @ExceptionHandler(AuthorizationDeniedException.class)
     public ResponseEntity<ApiErrorResponse> handleAuthorizationDeniedException(AuthorizationDeniedException ex) {
-        ApiErrorResponse response = ApiErrorResponse.of(ErrorCode.UNAUTHORIZED_ACCESS, ex.getMessage());
-        return ResponseEntity.status(ErrorCode.UNAUTHORIZED_ACCESS.getHttpStatus()).body(response);
+        ApiErrorResponse response = ApiErrorResponse.of(ErrorCode.FORBIDDEN_OPERATION);
+        return ResponseEntity.status(ErrorCode.FORBIDDEN_OPERATION.getHttpStatus()).body(response);
     }
 
     // 요청한 자원이 없을 때(404 Not Found 응답)
